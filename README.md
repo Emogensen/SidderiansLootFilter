@@ -12,7 +12,7 @@ Follow these steps to install Sidderians Loot Filter for Path of Exile 2:
 - Use a tool like [7-Zip](https://www.7-zip.org/) or any similar archive program to extract the downloaded ZIP file.
 
 ### **3. Place the Filter File**
-- Locate and copy the `SidderiansLootFilter.filter` file to the appropriate directory:
+- Locate and copy the `SidderiansLootFilter.filter` file and all custom sound files to the appropriate directory:
   - **Windows**:  
     Paste the file into:  
     `%userprofile%\Documents\My Games\Path of Exile 2`
