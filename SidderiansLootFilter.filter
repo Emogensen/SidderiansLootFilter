@@ -1,7 +1,7 @@
 #===============================================================================================================
 # Sidderians Loot Filter - Path of Exile 2
 #===============================================================================================================
-# VERSION:  0.2
+# VERSION:  0.1
 # AUTHOR:   Squidnips
 
 #===============================================================================================================
@@ -91,7 +91,8 @@ Show
   SetTextColor 255 207 92
   SetBorderColor 255 207 92
   SetBackgroundColor 76 51 12
-  PlayAlertSound 2 300
+# PlayAlertSound 2 300
+  CustomAlertSound "toasty.mp3" 300
   PlayEffect Yellow
   MinimapIcon 1 Yellow Circle
   SetFontSize 45
@@ -157,7 +158,8 @@ Show
 
 Show
   Class "Currency"
-  BaseType "Shard"
+  BaseType "Scroll of Wisdom" "Shard"
+  CustomAlertSound "sadtrombone.mp3" 300
 
 # Unknown currency
 Show
