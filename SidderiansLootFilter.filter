@@ -145,7 +145,14 @@ Show
 Show
   AreaLevel >= 70
   Class "Currency"
-  BaseType "Arcanist's Etcher" "Armourer's Scrap" "Blacksmith's Whetstone" "Orb of Augmentation" "Orb of Transmutation" "Regal Shard" "Chance Shard"
+  BaseType "Arcanist's Etcher" "Armourer's Scrap" "Blacksmith's Whetstone" "Regal Shard" "Chance Shard"
+  SetTextColor 220 190 132
+  SetFontSize 35
+
+Show
+  AreaLevel >= 70
+  Class "Currency"
+  BaseType "Orb of Augmentation" "Orb of Transmutation"
   CustomAlertSound "currency-tier-d.mp3" 300
   SetTextColor 220 190 132
   SetFontSize 35
