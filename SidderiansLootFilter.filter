@@ -31,14 +31,35 @@ Show
   MinimapIcon 0 Red Star
 
 #===============================================================================================================
-# Gold
+# Sidderian Special Rules
 #===============================================================================================================
 
-Hide
-  BaseType == "Gold"
-  SetTextColor 180 180 180
-  SetBorderColor 0 0 0 255
-  SetBackgroundColor 0 0 0 180
+Show
+  Rarity Normal
+  ItemLevel >= 81
+  BaseType == "Attuned Wand" "Siphoning Wand"
+  SetTextColor 255 207 132
+  SetBorderColor 255 207 132
+  SetBackgroundColor 76 51 12
+  PlayAlertSound 2 300
+  PlayEffect White
+  MinimapIcon 2 White Circle
+  SetFontSize 40
+
+Show
+  Rarity Normal
+  BaseType "Sapphire Ring"
+  SetTextColor 255 207 132
+  SetBorderColor 255 207 132
+  SetBackgroundColor 76 51 12
+  PlayAlertSound 2 300
+  PlayEffect White
+  MinimapIcon 2 White Circle
+  SetFontSize 40
+
+#===============================================================================================================
+# Gold
+#===============================================================================================================
 
 Show
   AreaLevel >= 70
@@ -47,6 +68,12 @@ Show
   SetTextColor 255 255 255
   SetBorderColor 255 255 255
   PlayEffect Orange Temp
+
+Hide
+  BaseType == "Gold"
+  SetTextColor 180 180 180
+  SetBorderColor 0 0 0 255
+  SetBackgroundColor 0 0 0 180
 
 #===============================================================================================================
 # Scroll of Wisdom High Level Hiding
@@ -146,15 +173,14 @@ Show
 Show
   AreaLevel >= 70
   Class "Currency"
-  BaseType "Arcanist's Etcher" "Armourer's Scrap" "Blacksmith's Whetstone" "Regal Shard" "Chance Shard"
+  BaseType "Arcanist's Etcher" "Armourer's Scrap" "Blacksmith's Whetstone" "Chance Shard"
   SetTextColor 220 190 132
   SetFontSize 35
 
-Show
+Hide
   AreaLevel >= 70
   Class "Currency"
-  BaseType "Orb of Augmentation" "Orb of Transmutation"
-  CustomAlertSound "currency-tier-d.mp3" 300
+  BaseType "Orb of Augmentation" "Orb of Transmutation" "Regal Shard"
   SetTextColor 220 190 132
   SetFontSize 35
 
@@ -215,7 +241,7 @@ Show
   SetTextColor 255 207 255
   SetBorderColor 255 207 255
   SetBackgroundColor 65 20 80
-  PlayAlertSound 2 300
+  CustomAlertSound "currency-tier-d.mp3" 300
   PlayEffect Grey
   MinimapIcon 1 Grey Square
   SetFontSize 40
@@ -225,31 +251,30 @@ Show
 #===============================================================================================================
 
 # Emils waystone filter 
+# Hide
+#   Rarity <= Rare
+#   AreaLevel > 70
+#   BaseType "Waystone"
+#   WaystoneTier < 12
+
 Hide
   BaseType "Waystone"
-  WaystoneTier < 7
+  WaystoneTier < 14
   AreaLevel > 70
   Rarity <= Rare
 
-# Tannes waystone filter
-# Hide
-#   BaseType "Waystone"
-#   WaystoneTier < 14
-#   AreaLevel > 70
-#   Rarity <= Rare
-
 Show
+  Rarity <= Rare
   BaseType "Waystone"
   WaystoneTier <= 12
-  Rarity <= Rare
   SetTextColor 255 255 255
   SetBorderColor 255 255 255
   SetFontSize 35
 
 Show
+  Rarity <= Rare
   BaseType "Waystone"
   WaystoneTier > 12
-  Rarity <= Rare
   SetTextColor 255 255 255
   SetBorderColor 255 255 255
   PlayAlertSound 4 300
@@ -274,7 +299,7 @@ Show
 
 # High-Level Gems
 Show
-  ItemLevel >= 19
+  ItemLevel > 18
   BaseType "Uncut Skill Gem"
   SetTextColor 20 240 240
   SetBorderColor 20 240 240
@@ -285,7 +310,8 @@ Show
 
 # Low-Level Gems
 Hide
-  ItemLevel < 18
+  AreaLevel > 72
+  ItemLevel <= 18
   BaseType "Uncut Skill Gem" "Uncut Spirit Gem" "Uncut Support Gem"
 
 #===============================================================================================================
@@ -336,27 +362,36 @@ Show
   SetFontSize 35
 
 #===============================================================================================================
+# Salvageable Items
+#===============================================================================================================
+
+# Show Normal rarity items with quality for salvaging
+# Show
+#   Rarity Normal
+#   Quality > 0
+#   SetBorderColor 200 200 200
+#   SetFontSize 35
+
+# Show Magic rarity items with quality for salvaging
+# Show
+#   Quality > 0
+#   Rarity Magic
+#   SetBorderColor 0 0 200
+#   SetFontSize 35
+
+#===============================================================================================================
 # Rings, Amulets, Belts
 #===============================================================================================================
 
 # Value Rares
 Show
-  Class "Rings" "Amulets" "Belts"
   Rarity Rare
+  Class "Rings" "Amulets" "Belts"
   SetFontSize 40
   SetTextColor 233 206 75
   SetBorderColor 233 206 75
   PlayEffect Yellow
   MinimapIcon 1 Yellow Diamond
-
-# Hide all Normal and Magic rarity Rings, Amulets, and Belts
-Hide
-  Rarity Normal
-  Class "Rings" "Amulets" "Belts"
-
-Hide
-  Rarity Magic
-  Class "Rings" "Amulets" "Belts"
 
 # Show specific Normal base types
 Show
@@ -380,8 +415,8 @@ Show
 
 # Highlight all Rare Jewels
 Show
+  Rarity Rare
   Class "Jewel"
-  Rarity <= Rare
   SetTextColor 0 240 190
   SetBorderColor 0 240 190
   SetFontSize 40
@@ -389,62 +424,34 @@ Show
   PlayEffect Cyan
   PlayAlertSound 2 300
 
-# Hide low-value Jewels
-Hide
+# Show low-value Jewels
+Show
+  Rarity <= Magic
   Class "Jewel"
   BaseType "Ruby"
-  Rarity <= Magic
 
 #===============================================================================================================
 # Runes
 #===============================================================================================================
 
 Hide 
-BaseType " Rune"
+  BaseType " Rune"
 
 #===============================================================================================================
 # Charms
 #===============================================================================================================
 
 Show
-  Class == "Charms"
-  BaseType == "Thawing Charm" "Amethyst Charm" "Golden Charm" "Stone Charm"
+  Class "Charms"
+  BaseType "Thawing Charm" "Amethyst Charm" "Golden Charm" "Stone Charm"
   SetTextColor 0 240 190
   PlayEffect Cyan Temp
   SetFontSize 40
   MinimapIcon 1 Cyan Circle
 
 Hide
-  Class == "Charms"
+  Class "Charms"
   Rarity <= Magic
-
-#===============================================================================================================
-# Salvageable Items
-#===============================================================================================================
-
-# Hide Normal rarity items with sockets but no quality
-Hide
-  Sockets > 0
-  Rarity Normal
-
-# Show Normal rarity items with quality for salvaging
-Show
-  Quality > 0
-  Rarity Normal
-  SetBorderColor 200 200 200
-  SetFontSize 35
-
-# Hide Magic rarity items with sockets but no quality
-Hide
-  Sockets > 0
-  Rarity Magic
-
-# Show Magic rarity items with quality for salvaging
-Show
-  Quality > 0
-  Rarity Magic
-  SetBorderColor 0 0 200
-  SetFontSize 35
 
 #===============================================================================================================
 # High-level Hide Rules
@@ -456,6 +463,12 @@ Hide
   AreaLevel > 70
   Rarity <= Magic
   Class "Flasks"
+
+# Hide all Normal and Magic rarity Rings, Amulets, and Belts
+Hide
+  AreaLevel >= 70
+  Rarity Normal Magic
+  Class "Rings" "Amulets" "Belts"
 
 # Hide low-value Armor and Weapon items at high levels (AreaLevel > 70)
 Hide
