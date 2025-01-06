@@ -96,8 +96,8 @@ Show
   SetTextColor 255 0 0 255
   SetBorderColor 255 0 0 255
   SetBackgroundColor 255 255 255 255
-# PlayAlertSound 6 300
-  CustomAlertSound "rich.mp3" 300
+  PlayAlertSound 6 300
+# CustomAlertSound "rich.mp3" 300
   PlayEffect Red
   MinimapIcon 0 Red Star
 
@@ -307,6 +307,18 @@ Show
   PlayEffect Cyan
   MinimapIcon 1 Cyan Triangle
   SetFontSize 40
+
+Show
+  ItemLevel > 19
+  BaseType "Uncut Spirit Gem"
+  SetFontSize 45
+  SetTextColor 255 0 0 255
+  SetBorderColor 255 0 0 255
+  SetBackgroundColor 255 255 255 255
+  PlayAlertSound 6 300
+# CustomAlertSound "rich.mp3" 300
+  PlayEffect Red
+  MinimapIcon 0 Red Star
 
 # Low-Level Gems
 Hide
